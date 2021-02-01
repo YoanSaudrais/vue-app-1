@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Recettes</title>
+    <title>Crêpes</title>
 
     <style>
     @import url(https://fonts.googleapis.com/css?family=Cookie);
@@ -29,7 +29,7 @@
 
     a, a:visited {
     	outline:none;
-    	color:#0c6a8d;
+    	color:#389dc1;
     }
 
     a:hover{
@@ -73,13 +73,13 @@
 
     form ul li{
     	padding:20px 30px;
-    	background-color:#02ffc0;
+    	background-color:#e35885;
     	margin-bottom:8px;
     	box-shadow:0 1px 1px rgba(0,0,0,0.1);
     	cursor:pointer;
     }
 
-    form ul li span{
+    .quantity{
     	float:right;
     }
 
@@ -103,12 +103,15 @@
 </head>
 <body>
 
-<form id="main" v-cloak>
+<form id="crepes" v-cloak>
 
-	<h1>Recettes</h1>
+	<h1>Recette des Crêpes</h1>
+	<h2>Pour 4 personnes</h2>
+	<img src="../img/crepes.jpeg"></img>
 	<ul>
-		<li v-for="recette in recettes">
-            <a v-on:click="goUrl(recette.link)" target="_blank">{{recette.name}}</a>
+		<li v-for="ingredient in ingredients">
+            <span>{{ingredient.name}}</span>
+            <span class="quantity">{{ ingredient.quantity }}</span>
 		</li>
 	</ul>
 </form>
@@ -118,28 +121,35 @@
 
 
 var demo = new Vue({
-    el: '#main',
+    el: '#crepes',
     data: {
-        recettes: [
+        ingredients: [
         	{
-                name: 'Pâtes au beurre',
-                link: "recettes/pates_beurre.html",
+				name: 'Farine',
+				quantity:'250g',
             },
             {
-                name: 'Boeuf Bourguignon',
-                link: "recettes/boeuf_bourguignon.html",
-            },
-            {
-                name: 'Crêpes',
-                link: "recettes/crepes.html",
-        	},
+				name: 'Oeuf',
+				quantity:'4 unités',
+			},
+			{
+				name: 'Lait',
+				quantity:'1/2 litre',
+			},
+			{
+				name: 'Sel',
+				quantity:'1 pincée',
+			},
+			{
+				name: 'Sucre',
+				quantity:'2 cuillères à soupe',
+			},
+			{
+				name: 'Beurre fondu',
+				quantity:'50g',
+			},
         ]
     },
-    methods: {
-    	goUrl: function(link) {
-            window.location.href = link;
-        }
-    }
 });
 	
 </script>
