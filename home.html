@@ -1,1 +1,146 @@
-Bonjour
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home</title>
+
+    <style>
+    @import url(https://fonts.googleapis.com/css?family=Cookie);
+
+    /* Hide un-compiled mustache bindings
+    until the Vue instance is ready */
+       [v-cloak] {   display: none;
+    }
+
+
+
+    *{
+    	margin:0;
+    	padding:0;
+    }
+
+    body{
+    	font:15px/1.3 'Open Sans', sans-serif;
+    	color: #5e5b64;
+    	text-align:center;
+    }
+
+    a, a:visited {
+    	outline:none;
+    	color:#389dc1;
+    }
+
+    a:hover{
+    	text-decoration:none;
+    }
+
+    section, footer, header, aside, nav{
+    	display: block;
+    }
+
+    /*-------------------------
+    	The order form
+    --------------------------*/
+
+    form{
+    	background-color: #61a1bc;
+    	border-radius: 2px;
+    	box-shadow: 0 1px 1px #ccc;
+    	width: 400px;
+    	padding: 35px 60px;
+    	margin: 50px auto;
+    }
+
+    form h1{
+    	color:#fff;
+    	font-size:64px;
+    	font-family:'Cookie', cursive;
+    	font-weight: normal;
+    	line-height:1;
+    	text-shadow:0 3px 0 rgba(0,0,0,0.1);
+    }
+
+    form ul{
+    	list-style:none;
+    	color:#fff;
+    	font-size:20px;
+    	font-weight:bold;
+    	text-align: left;
+    	margin:20px 0 15px;
+    }
+
+    form ul li{
+    	padding:20px 30px;
+    	background-color:#e35885;
+    	margin-bottom:8px;
+    	box-shadow:0 1px 1px rgba(0,0,0,0.1);
+    	cursor:pointer;
+    }
+
+    form ul li span{
+    	float:right;
+    }
+
+    form ul li.active{
+    	background-color:#8ec16d;
+    }
+
+    div.total{
+    	border-top:1px solid rgba(255,255,255,0.5);
+    	padding:15px 30px;
+    	font-size:20px;
+    	font-weight:bold;
+    	text-align: left;
+    	color:#fff;
+    }
+
+    div.total span{
+    	float:right;
+    }
+    </style>
+</head>
+<body>
+
+<form id="main" v-cloak>
+
+	<h1>Recettes</h1>
+	<ul>
+		<li v-for="recette in recettes">
+            {{recette.name}}<br>
+                <li v-for="ingredient in ingredients"></li>
+                    <span>{{ `x${ ingredient.num1 }` }}</span>
+                </li>
+            <span>{{ `x${ recette.price }` }}</span>
+		</li>
+	</ul>
+</form>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.5/vue.min.js"></script>
+<script>
+
+var demo = new Vue({
+    el: '#main',
+    data: {
+    	// Define the model properties. The view will loop
+        // through the services array and genreate a li
+        // element for every one of its items.
+        recettes: [
+        	{
+        		name: 'Pâtes au beurre demi-sel',
+				ingredients: [
+                    {
+                        num1:'-Pâtes',
+                        num2:'-Beuure demi-sel (De préférence de Guérande)'
+                    }
+                ],
+        		price: 1,
+        	},
+        ]
+    },
+});
+	
+</script>
+</body>
+</html>
