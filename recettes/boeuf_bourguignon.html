@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Home</title>
+    <title>Boeuf Bourguignon</title>
 
     <style>
     @import url(https://fonts.googleapis.com/css?family=Cookie);
@@ -79,7 +79,7 @@
     	cursor:pointer;
     }
 
-    form ul li span{
+    .quantity{
     	float:right;
     }
 
@@ -103,13 +103,15 @@
 </head>
 <body>
 
-<form id="pates_beurre" v-cloak>
+<form id="boeuf_bourguignon" v-cloak>
 
-	<h1>Recette des Pâtes au beurre</h1>
+	<h1>Recette du Boeuf Bourguignon</h1>
+	<h2>Pour 6 personnes</h2>
+	<img src="../img/boeuf_bourguignon.jpeg"></img>
 	<ul>
 		<li v-for="ingredient in ingredients">
             <span>{{ingredient.name}}</span>
-            <span>{{ingredient.price}}</span>
+            <span class="quantity">{{ ingredient.quantity }}</span>
 		</li>
 	</ul>
 </form>
@@ -119,13 +121,61 @@
 
 
 var demo = new Vue({
-    el: '#pates_beurre',
+    el: '#boeuf_bourguignon',
     data: {
         ingredients: [
         	{
-                name: 'Pâtes',
-        		price: 1.50,
-        	},
+				name: 'Boeuf',
+				quantity:'1.5kg',
+            },
+            {
+				name: 'Lardons',
+				quantity:'200g',
+			},
+			{
+				name: 'Beurre',
+				quantity:'60g',
+			},
+			{
+				name: 'Petits Oignons',
+				quantity:'10 unités',
+			},
+			{
+				name: 'Carotte',
+				quantity:'2 unités',
+			},
+			{
+				name: 'Ail',
+				quantity:'2 gousses',
+			},
+			{
+				name: 'Farine',
+				quantity:'60g',
+			},
+			{
+				name: 'Vin Rouge Bourgogne (évidemment)',
+				quantity:'50cl',
+			},
+			{
+				name: 'Bouillon de viande',
+				quantity:'2 cubes',
+			},
+			{
+				name: 'Champignon',
+				quantity:'250g',
+			},
+			{
+				name: 'Bouquet Garni',
+				quantity:'1 unité',
+			},
+			{
+				name: 'Sel',
+				quantity:'Quelques pincées',
+			},
+			{
+				name: 'Poivre',
+				quantity:'Quelques pincées',
+			},
         ]
     },
 });
