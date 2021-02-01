@@ -103,12 +103,13 @@
 </head>
 <body>
 
-<form id="main" v-cloak>
+<form id="pates_beurre" v-cloak>
 
-	<h1>Recettes</h1>
+	<h1>Recette des Pâtes au beurre</h1>
 	<ul>
-		<li v-for="recette in recettes">
-            <a href="{{recette.link}}">{{recette.name}}</a>
+		<li v-for="ingredient in ingredients">
+            <span>{{ingredient.name}}</span>
+            <span>{{ingredient.price}}</span>
 		</li>
 	</ul>
 </form>
@@ -118,19 +119,12 @@
 
 
 var demo = new Vue({
-    el: '#main',
+    el: '#pates_beurre',
     data: {
-        recettes: [
+        ingredients: [
         	{
-                name: 'Pâtes au beurre demi-sel',
-                link: 'pates_beurre.html',
-				ingredients: [
-                    {
-                        num1:'-Pâtes',
-                        num2:'-Beurre demi-sel (De préférence de Guérande)'
-                    }
-                ],
-        		price: 1,
+                name: 'Pâtes',
+        		price: 1.50,
         	},
         ]
     },
